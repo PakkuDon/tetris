@@ -1,0 +1,26 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1em;
+  width: 60%;
+  margin: 0 auto;
+}
+
+canvas {
+  border: 1px solid #000;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+#stats {
+  flex: 1 0 auto;
+}
