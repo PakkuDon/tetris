@@ -12,6 +12,12 @@ const drawGrid = (grid, graphicsContext) => {
 
   for (var y = 0; y < grid.length; y++) {
     for (var x = 0; x < grid[y].length; x++) {
+      if (grid[y][x]) {
+        graphicsContext.fillStyle = '#000'
+      }
+      else {
+        graphicsContext.fillStyle = '#FFF'
+      }
       graphicsContext.fillRect(x * cellWidth, y * cellHeight, cellWidth, cellHeight)
     }
   }
