@@ -4,7 +4,8 @@ const ROWS = 20
 class Game {
   constructor() {
     this.grid = []
-    this.lines = 0
+    this.linesCleared = 0
+    this.levels = 1
     this.score = 0
     this.currentPiece = null
     this.nextPiece = null
