@@ -1,6 +1,9 @@
 const game = new Game()
 const gridCanvas = document.querySelector('canvas')
 const gridGraphicsContext = gridCanvas.getContext('2d')
+const scoreDisplay = document.querySelector('#score')
+const levelsDisplay = document.querySelector('#levels')
+const linesClearedDisplay = document.querySelector('#lines')
 
 const drawGrid = (grid, graphicsContext) => {
   const canvasWidth = graphicsContext.canvas.width
@@ -23,4 +26,11 @@ const drawGrid = (grid, graphicsContext) => {
   }
 }
 
+const drawStats = (game) => {
+  scoreDisplay.textContent = game.score
+  levelsDisplay.textContent = game.levels
+  linesClearedDisplay.textContent = game.linesCleared
+}
+
 drawGrid(game.grid, gridGraphicsContext)
+drawStats(game)
