@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: 'Press Start 2P', serif;
+}
+
 main {
   display: grid;
   grid-template-columns: 3fr 1fr;
