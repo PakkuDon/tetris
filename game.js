@@ -13,7 +13,7 @@ class Game {
     this.levels = 1
     this.score = 0
     this.currentPiece = PIECE
-    this.x = Math.floor(COLUMNS / 2)
+    this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
     this.y = 0
     this.nextPiece = null
 
