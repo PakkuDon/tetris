@@ -24,6 +24,22 @@ const drawGrid = (grid, graphicsContext) => {
       graphicsContext.fillRect(x * cellWidth, y * cellHeight, cellWidth, cellHeight)
     }
   }
+
+  const currentPiece = game.currentPiece
+  for (let i = 0; i < currentPiece.length; i++) {
+    for (let j = 0; j < currentPiece[i].length; j++) {
+      console.log({ i, j, x: game.x, y: game.y })
+      if (currentPiece[i][j]) {
+        graphicsContext.fillStyle = '#000'
+        graphicsContext.fillRect(
+          (j + game.x) * cellWidth,
+          (i + game.y) * cellHeight,
+          cellWidth,
+          cellHeight,
+        )
+      }
+    }
+  }
 }
 
 const drawStats = (game) => {
