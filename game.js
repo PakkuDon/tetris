@@ -1,9 +1,39 @@
 const COLUMNS = 10
 const ROWS = 20
 
-const PIECE = [
+const I_TETRONIMO = [
+  [true],
+  [true],
+  [true],
+  [true],
+]
+
+const L_TETRONIMO = [
+  [true, false, false],
+  [true, true, true],
+]
+
+const O_TETRONIMO = [
   [true, true],
   [true, true],
+]
+
+const T_TETRONIMO = [
+  [false, true, false],
+  [true, true, true],
+]
+
+const Z_TETRONIMO = [
+  [true, true, false],
+  [false, true, true],
+]
+
+const TETRONIMOES = [
+  I_TETRONIMO,
+  L_TETRONIMO,
+  O_TETRONIMO,
+  T_TETRONIMO,
+  Z_TETRONIMO,
 ]
 
 class Game {
@@ -12,7 +42,7 @@ class Game {
     this.linesCleared = 0
     this.levels = 1
     this.score = 0
-    this.currentPiece = PIECE
+    this.currentPiece = I_TETRONIMO
     this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
     this.y = 0
     this.nextPiece = null
