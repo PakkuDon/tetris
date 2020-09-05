@@ -5,23 +5,35 @@ const scoreDisplay = document.querySelector('#score')
 const levelsDisplay = document.querySelector('#levels')
 const linesClearedDisplay = document.querySelector('#lines')
 
+const drawBlock = (grid, graphicsContext, x, y) => {
+  const cellWidth = graphicsContext.canvas.width / grid[0].length
+  const cellHeight = graphicsContext.canvas.height / grid.length
+
+  graphicsContext.fillStyle = '#000'
+  graphicsContext.fillRect(x * cellWidth, y * cellHeight, cellWidth, cellHeight)
+}
+
+const clearCell = (grid, graphicsContext, x, y) => {
+  const cellWidth = graphicsContext.canvas.width / grid[0].length
+  const cellHeight = graphicsContext.canvas.height / grid.length
+
+  graphicsContext.clearRect(x * cellWidth, y * cellHeight, cellWidth, cellHeight)
+}
+
 const drawGrid = (grid, graphicsContext) => {
   const canvasWidth = graphicsContext.canvas.width
   const canvasHeight = graphicsContext.canvas.height
-  const cellWidth = canvasWidth / grid[0].length
-  const cellHeight = canvasHeight / grid.length
 
-  graphicsContext.clearRect(0, 0, canvasWidth, canvasHeight)
+  graphicsContext.clearRect(0, 0, graphicsContext.canvas.width, graphicsContext.canvas.height)
 
   for (var y = 0; y < grid.length; y++) {
     for (var x = 0; x < grid[y].length; x++) {
       if (grid[y][x]) {
-        graphicsContext.fillStyle = '#000'
+        drawBlock(grid, graphicsContext, x, y)
       }
       else {
-        graphicsContext.fillStyle = '#FFF'
+        clearCell(grid, graphicsContext, x, y)
       }
-      graphicsContext.fillRect(x * cellWidth, y * cellHeight, cellWidth, cellHeight)
     }
   }
 
@@ -30,12 +42,11 @@ const drawGrid = (grid, graphicsContext) => {
     for (let j = 0; j < currentPiece[i].length; j++) {
       console.log({ i, j, x: game.x, y: game.y })
       if (currentPiece[i][j]) {
-        graphicsContext.fillStyle = '#000'
-        graphicsContext.fillRect(
-          (j + game.x) * cellWidth,
-          (i + game.y) * cellHeight,
-          cellWidth,
-          cellHeight,
+        drawBlock(
+          grid,
+          graphicsContext,
+          j + game.x,
+          i + game.y,
         )
       }
     }
