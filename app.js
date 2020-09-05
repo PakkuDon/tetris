@@ -40,7 +40,6 @@ const drawGrid = (grid, graphicsContext) => {
   const currentPiece = game.currentPiece
   for (let i = 0; i < currentPiece.length; i++) {
     for (let j = 0; j < currentPiece[i].length; j++) {
-      console.log({ i, j, x: game.x, y: game.y })
       if (currentPiece[i][j]) {
         drawBlock(
           grid,
