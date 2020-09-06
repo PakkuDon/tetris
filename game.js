@@ -42,7 +42,7 @@ class Game {
     this.linesCleared = 0
     this.levels = 1
     this.score = 0
-    this.currentPiece = I_TETRONIMO
+    this.currentPiece = this.getRandomPiece()
     this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
     this.y = 0
     this.nextPiece = null
@@ -52,5 +52,9 @@ class Game {
       row.fill(false)
       this.grid.push(row)
     }
+  }
+
+  getRandomPiece() {
+    return TETRONIMOES[Math.floor(Math.random() * TETRONIMOES.length)]
   }
 }
