@@ -57,4 +57,8 @@ class Game {
   getRandomPiece() {
     return TETRONIMOES[Math.floor(Math.random() * TETRONIMOES.length)]
   }
+
+  moveBlock() {
+    this.y++
+  }
 }
