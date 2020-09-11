@@ -58,5 +58,8 @@ const drawStats = (game) => {
   linesClearedDisplay.textContent = game.linesCleared
 }
 
-drawGrid(game.grid, gridGraphicsContext)
-drawStats(game)
+setInterval(() => {
+  game.moveBlock()
+  drawGrid(game.grid, gridGraphicsContext)
+  drawStats(game)
+}, 1000)
