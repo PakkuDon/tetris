@@ -59,6 +59,20 @@ class Game {
   }
 
   moveBlock() {
+    const bottomY = this.y + this.currentPiece.length
+    if (bottomY >= ROWS || this.grid[bottomY][this.x]) {
+      for (let i = 0; i < this.currentPiece.length; i++) {
+        for (let j = 0; j < this.currentPiece[i].length; j++) {
+          if (this.currentPiece[i][j]) {
+            this.grid[this.y + i][this.x + j] = true
+          }
+        }
+      }
+      
+      this.currentPiece = this.getRandomPiece()
+      this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
+      this.y = -1
+    }
     this.y++
   }
 }
