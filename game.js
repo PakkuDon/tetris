@@ -58,9 +58,13 @@ class Game {
     return TETRONIMOES[Math.floor(Math.random() * TETRONIMOES.length)]
   }
 
+  isAtBoundary(y) {
+    return y >= ROWS
+  }
+
   moveBlock() {
     const bottomY = this.y + this.currentPiece.length
-    if (bottomY >= ROWS || this.grid[bottomY][this.x]) {
+    if (this.isAtBoundary(bottomY) || this.grid[bottomY][this.x]) {
       for (let i = 0; i < this.currentPiece.length; i++) {
         for (let j = 0; j < this.currentPiece[i].length; j++) {
           if (this.currentPiece[i][j]) {
