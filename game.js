@@ -43,9 +43,9 @@ class Game {
     this.levels = 1
     this.score = 0
     this.currentPiece = this.getRandomPiece()
+    this.nextPiece = this.getRandomPiece()
     this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
     this.y = 0
-    this.nextPiece = null
 
     for (let i = 0; i < ROWS; i++) {
       let row = new Array(COLUMNS)
@@ -68,8 +68,9 @@ class Game {
           }
         }
       }
-      
-      this.currentPiece = this.getRandomPiece()
+
+      this.currentPiece = this.nextPiece
+      this.nextPiece = this.getRandomPiece()
       this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
       this.y = -1
     }
