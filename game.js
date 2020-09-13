@@ -76,8 +76,10 @@ class Game {
       this.currentPiece = this.nextPiece
       this.nextPiece = this.getRandomPiece()
       this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
-      this.y = -1
+      this.y = 0
     }
-    this.y++
+    else {
+      this.y++
+    }
   }
 }
