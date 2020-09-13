@@ -42,16 +42,20 @@ class Game {
     this.linesCleared = 0
     this.levels = 1
     this.score = 0
-    this.currentPiece = this.getRandomPiece()
+    this.initialiseCurrentPiece()
     this.nextPiece = this.getRandomPiece()
-    this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
-    this.y = 0
 
     for (let i = 0; i < ROWS; i++) {
       let row = new Array(COLUMNS)
       row.fill(false)
       this.grid.push(row)
     }
+  }
+
+  initialiseCurrentPiece() {
+    this.currentPiece = this.nextPiece || this.getRandomPiece()
+    this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
+    this.y = 0
   }
 
   getRandomPiece() {
@@ -73,10 +77,8 @@ class Game {
         }
       }
 
-      this.currentPiece = this.nextPiece
+      this.initialiseCurrentPiece()
       this.nextPiece = this.getRandomPiece()
-      this.x = Math.floor(COLUMNS / 2) - Math.floor(this.currentPiece.length / 2)
-      this.y = 0
     }
     else {
       this.y++
