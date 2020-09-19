@@ -66,9 +66,20 @@ class Game {
     return x <= 0 || x >= COLUMNS || y >= ROWS
   }
 
+  overlapsWithSetBlock(x, y, piece) {
+    for (let i = 0; i < piece.length && (i + y) < COLUMNS; i++) {
+      for (let j = 0; j < piece[i].length && (j + x) < ROWS; j++) {
+        if (piece[i][j] && this.grid[y + i][x + j]) {
+          return true
+        }
+      }
+    }
+    return false
+  }
+
   moveBlock() {
     const bottomY = this.y + this.currentPiece.length
-    if (this.isAtBoundary(this.x, bottomY) || this.grid[bottomY][this.x]) {
+    if (this.isAtBoundary(this.x, bottomY) || this.overlapsWithSetBlock(this.x, this.y + 1, this.currentPiece)) {
       for (let i = 0; i < this.currentPiece.length; i++) {
         for (let j = 0; j < this.currentPiece[i].length; j++) {
           if (this.currentPiece[i][j]) {
