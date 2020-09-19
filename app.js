@@ -1,6 +1,8 @@
 const game = new Game()
-const gridCanvas = document.querySelector('canvas')
+const gridCanvas = document.querySelector('canvas#board')
 const gridGraphicsContext = gridCanvas.getContext('2d')
+const nextPieceCanvas = document.querySelector('canvas#next-piece')
+const nextPieceGraphicsContext = nextPieceCanvas.getContext('2d')
 const scoreDisplay = document.querySelector('#score')
 const levelsDisplay = document.querySelector('#levels')
 const linesClearedDisplay = document.querySelector('#lines')
@@ -62,11 +64,26 @@ const drawStats = (game) => {
   linesClearedDisplay.textContent = game.linesCleared
 }
 
+const drawNextPiece = (piece, graphicsContext) => {
+  for (let y = 0; y < piece.length; y++) {
+    for (let x = 0; x < piece[y].length; x++) {
+      if (piece[y][x]) {
+        drawBlock(piece, graphicsContext, x, y)
+      }
+      else {
+        clearCell(piece, graphicsContext, x, y)
+      }
+    }
+  }
+}
+
 drawGrid(game.grid, gridGraphicsContext)
 drawStats(game)
+drawNextPiece(game.nextPiece, nextPieceGraphicsContext)
 
 setInterval(() => {
   game.moveBlock()
   drawGrid(game.grid, gridGraphicsContext)
   drawStats(game)
+  drawNextPiece(game.nextPiece, nextPieceGraphicsContext)
 }, 1000)
