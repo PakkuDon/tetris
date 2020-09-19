@@ -9,8 +9,12 @@ const drawBlock = (grid, graphicsContext, x, y) => {
   const cellWidth = graphicsContext.canvas.width / grid[0].length
   const cellHeight = graphicsContext.canvas.height / grid.length
 
+  graphicsContext.strokeStyle = '#000'
   graphicsContext.fillStyle = '#000'
   graphicsContext.fillRect(x * cellWidth, y * cellHeight, cellWidth, cellHeight)
+
+  graphicsContext.strokeStyle = '#FFF'
+  graphicsContext.strokeRect(x * cellWidth + 5, y * cellHeight + 5, cellWidth - 10, cellHeight - 10)
 }
 
 const clearCell = (grid, graphicsContext, x, y) => {
