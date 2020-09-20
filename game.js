@@ -77,7 +77,7 @@ class Game {
     return false
   }
 
-  moveBlock() {
+  tick() {
     const bottomY = this.y + this.currentPiece.length
     if (this.isAtBoundary(this.x, bottomY) || this.overlapsWithSetBlock(this.x, this.y + 1, this.currentPiece)) {
       for (let i = 0; i < this.currentPiece.length; i++) {

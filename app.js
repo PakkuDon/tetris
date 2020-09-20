@@ -82,7 +82,7 @@ drawStats(game)
 drawNextPiece(game.nextPiece, nextPieceGraphicsContext)
 
 setInterval(() => {
-  game.moveBlock()
+  game.tick()
   drawGrid(game.grid, gridGraphicsContext)
   drawStats(game)
   drawNextPiece(game.nextPiece, nextPieceGraphicsContext)
