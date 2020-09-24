@@ -67,9 +67,9 @@ class Game {
   }
 
   overlapsWithSetBlock(x, y, piece) {
-    for (let i = 0; i < piece.length && (i + y) < COLUMNS; i++) {
-      for (let j = 0; j < piece[i].length && (j + x) < ROWS; j++) {
-        if (piece[i][j] && this.grid[y + i][x + j]) {
+    for (let pieceY = 0; pieceY < piece.length && (pieceY + y) < COLUMNS; pieceY++) {
+      for (let pieceX = 0; pieceX < piece[pieceY].length && (pieceX + x) < ROWS; pieceX++) {
+        if (piece[pieceY][pieceX] && this.grid[y + pieceY][x + pieceX]) {
           return true
         }
       }
@@ -80,10 +80,10 @@ class Game {
   tick() {
     const bottomY = this.y + this.currentPiece.length
     if (this.isAtBoundary(this.x, bottomY) || this.overlapsWithSetBlock(this.x, this.y + 1, this.currentPiece)) {
-      for (let i = 0; i < this.currentPiece.length; i++) {
-        for (let j = 0; j < this.currentPiece[i].length; j++) {
-          if (this.currentPiece[i][j]) {
-            this.grid[this.y + i][this.x + j] = true
+      for (let pieceY = 0; pieceY < this.currentPiece.length; pieceY++) {
+        for (let pieceX = 0; pieceX < this.currentPiece[pieceY].length; pieceX++) {
+          if (this.currentPiece[pieceY][pieceX]) {
+            this.grid[this.y + pieceY][this.x + pieceX] = true
           }
         }
       }

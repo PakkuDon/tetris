@@ -44,14 +44,14 @@ const drawGrid = (grid, graphicsContext) => {
   }
 
   const currentPiece = game.currentPiece
-  for (let i = 0; i < currentPiece.length; i++) {
-    for (let j = 0; j < currentPiece[i].length; j++) {
-      if (currentPiece[i][j]) {
+  for (let pieceY = 0; pieceY < currentPiece.length; pieceY++) {
+    for (let pieceX = 0; pieceX < currentPiece[pieceY].length; pieceX++) {
+      if (currentPiece[pieceY][pieceX]) {
         drawBlock(
           grid,
           graphicsContext,
-          j + game.x,
-          i + game.y,
+          pieceX + game.x,
+          pieceY + game.y,
         )
       }
     }
