@@ -9,6 +9,11 @@ const I_TETRONIMO = [
 ]
 
 const L_TETRONIMO = [
+  [false, false, true],
+  [true, true, true],
+]
+
+const J_TETRONIMO = [
   [true, false, false],
   [true, true, true],
 ]
@@ -16,6 +21,11 @@ const L_TETRONIMO = [
 const O_TETRONIMO = [
   [true, true],
   [true, true],
+]
+
+const S_TETRONIMO = [
+  [false, true, true],
+  [true, true, false],
 ]
 
 const T_TETRONIMO = [
@@ -30,8 +40,10 @@ const Z_TETRONIMO = [
 
 const TETRONIMOES = [
   I_TETRONIMO,
+  J_TETRONIMO,
   L_TETRONIMO,
   O_TETRONIMO,
+  S_TETRONIMO,
   T_TETRONIMO,
   Z_TETRONIMO,
 ]
