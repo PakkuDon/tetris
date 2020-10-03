@@ -91,20 +91,23 @@ class Game {
 
   tick() {
     const bottomY = this.y + this.currentPiece.length
-    if (this.isAtBoundary(this.x, bottomY) || this.overlapsWithSetBlock(this.x, this.y + 1, this.currentPiece)) {
-      for (let pieceY = 0; pieceY < this.currentPiece.length; pieceY++) {
-        for (let pieceX = 0; pieceX < this.currentPiece[pieceY].length; pieceX++) {
-          if (this.currentPiece[pieceY][pieceX]) {
-            this.grid[this.y + pieceY][this.x + pieceX] = true
-          }
-        }
-      }
-
+    if (this.isAtBoundary(this.x, bottomY) || this.overlapsWithSetBlock(this.x, bottomY, this.currentPiece)) {
+      this.setPiece(this.x, this.y, this.currentPiece)
       this.initialiseCurrentPiece()
       this.nextPiece = this.getRandomPiece()
     }
     else {
       this.y++
+    }
+  }
+
+  setPiece(x, y, piece) {
+    for (let pieceY = 0; pieceY < piece.length; pieceY++) {
+      for (let pieceX = 0; pieceX < piece[pieceY].length; pieceX++) {
+        if (piece[pieceY][pieceX]) {
+          this.grid[this.y + pieceY][this.x + pieceX] = true
+        }
+      }
     }
   }
 }
