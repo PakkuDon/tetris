@@ -1,5 +1,6 @@
 const COLUMNS = 10
 const ROWS = 20
+const DELTA_TIME = 1000
 
 const I_TETRONIMO = [
   [true],
@@ -87,6 +88,18 @@ class Game {
       }
     }
     return false
+  }
+
+  moveLeft() {
+    if (!(this.isAtBoundary(this.x, this.y) || this.overlapsWithSetBlock(newX, this.y, this.currentPiece))) {
+      this.x--
+    }
+  }
+
+  moveRight() {
+    if (!(this.isAtBoundary(this.x, this.y) || this.overlapsWithSetBlock(newX, this.y, this.currentPiece))) {
+      this.x++
+    }
   }
 
   tick() {

@@ -81,6 +81,18 @@ drawGrid(game.grid, gridGraphicsContext)
 drawStats(game)
 drawNextPiece(game.nextPiece, nextPieceGraphicsContext)
 
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft') {
+    game.moveLeft()
+  }
+  else if (event.key === 'ArrowRight') {
+    game.moveRight()
+  }
+  drawGrid(game.grid, gridGraphicsContext)
+  drawStats(game)
+  drawNextPiece(game.nextPiece, nextPieceGraphicsContext)
+})
+
 setInterval(() => {
   game.tick()
   drawGrid(game.grid, gridGraphicsContext)
