@@ -3,40 +3,54 @@ const ROWS = 20
 const DELTA_TIME = 1000
 
 const I_TETRONIMO = [
-  [true],
-  [true],
-  [true],
-  [true],
+  [
+    [true],
+    [true],
+    [true],
+    [true],
+  ],
 ]
 
 const L_TETRONIMO = [
-  [false, false, true],
-  [true, true, true],
+  [
+    [false, false, true],
+    [true, true, true],
+  ],
 ]
 
 const J_TETRONIMO = [
-  [true, false, false],
-  [true, true, true],
+  [
+    [true, false, false],
+    [true, true, true],
+  ],
 ]
 
 const O_TETRONIMO = [
-  [true, true],
-  [true, true],
+  [
+    [true, true],
+    [true, true],
+  ],
 ]
 
 const S_TETRONIMO = [
-  [false, true, true],
-  [true, true, false],
+  [
+    [false, true, true],
+    [true, true, false],
+  ],
 ]
 
 const T_TETRONIMO = [
-  [false, true, false],
-  [true, true, true],
+  [
+    [false, true, false],
+    [true, true, true],
+  ],
 ]
 
 const Z_TETRONIMO = [
-  [true, true, false],
-  [false, true, true],
+  [
+    [true, true, false],
+    [false, true, true],
+  ],
 ]
 
 const TETRONIMOES = [
@@ -72,7 +86,7 @@ class Game {
   }
 
   getRandomPiece() {
-    return TETRONIMOES[Math.floor(Math.random() * TETRONIMOES.length)]
+    return TETRONIMOES[Math.floor(Math.random() * TETRONIMOES.length)][0]
   }
 
   isAtBoundary(value, boundary) {
