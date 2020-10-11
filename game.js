@@ -75,8 +75,8 @@ class Game {
     return TETRONIMOES[Math.floor(Math.random() * TETRONIMOES.length)]
   }
 
-  isAtBoundary(x, y) {
-    return x <= 0 || x >= COLUMNS || y >= ROWS
+  isAtBoundary(value, boundary) {
+    return value === boundary
   }
 
   overlapsWithSetBlock(x, y, piece) {
@@ -91,20 +91,19 @@ class Game {
   }
 
   moveLeft() {
-    if (!(this.isAtBoundary(this.x, this.y) || this.overlapsWithSetBlock(newX, this.y, this.currentPiece))) {
+    if (!(this.isAtBoundary(this.x, 0) || this.overlapsWithSetBlock(this.x - 1, this.y, this.currentPiece))) {
       this.x--
     }
   }
 
   moveRight() {
-    if (!(this.isAtBoundary(this.x, this.y) || this.overlapsWithSetBlock(newX, this.y, this.currentPiece))) {
+    if (!(this.isAtBoundary(this.x, COLUMNS - this.currentPiece.length - 1) || this.overlapsWithSetBlock(this.x + 1, this.y, this.currentPiece))) {
       this.x++
     }
   }
 
   tick() {
-    const bottomY = this.y + this.currentPiece.length
-    if (this.isAtBoundary(this.x, bottomY) || this.overlapsWithSetBlock(this.x, this.y + 1, this.currentPiece)) {
+    if (this.isAtBoundary(this.y + this.currentPiece.length, ROWS) || this.overlapsWithSetBlock(this.x, this.y + 1, this.currentPiece)) {
       this.setPiece(this.x, this.y, this.currentPiece)
       this.initialiseCurrentPiece()
       this.nextPiece = this.getRandomPiece()
