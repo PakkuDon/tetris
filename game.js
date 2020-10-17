@@ -9,9 +9,24 @@ const I_TETRONIMO = [
     [true],
     [true],
   ],
+  [true, true, true, true],
 ]
 
 const L_TETRONIMO = [
+  [
+    [true, false],
+    [true, false],
+    [true, true],
+  ],
+  [
+    [true, true, true],
+    [true, false, false],
+  ],
+  [
+    [true, true],
+    [false, true],
+    [false, true],
+  ],
   [
     [false, false, true],
     [true, true, true],
@@ -20,8 +35,22 @@ const L_TETRONIMO = [
 
 const J_TETRONIMO = [
   [
+    [false, true],
+    [false, true],
+    [true, true],
+  ],
+  [
     [true, false, false],
     [true, true, true],
+  ],
+  [
+    [true, true],
+    [true, false],
+    [true, false],
+  ],
+  [
+    [true, true, true],
+    [false, false, true],
   ],
 ]
 
@@ -37,12 +66,31 @@ const S_TETRONIMO = [
     [false, true, true],
     [true, true, false],
   ],
+  [
+    [true, false],
+    [true, true],
+    [false, true],
+  ],
 ]
 
 const T_TETRONIMO = [
   [
     [false, true, false],
     [true, true, true],
+  ],
+  [
+    [true, false],
+    [true, true],
+    [true, false],
+  ],
+  [
+    [true, true, true],
+    [false, true, false],
+  ],
+  [
+    [false, true],
+    [true, true],
+    [false, true],
   ],
 ]
 
@@ -51,6 +99,11 @@ const Z_TETRONIMO = [
     [true, true, false],
     [false, true, true],
   ],
+  [
+    [false, true],
+    [true, true],
+    [true, false]
+  ]
 ]
 
 const TETRONIMOES = [
