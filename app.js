@@ -7,6 +7,15 @@ const scoreDisplay = document.querySelector('#score')
 const levelsDisplay = document.querySelector('#levels')
 const linesClearedDisplay = document.querySelector('#lines')
 
+const KEY_BINDINGS = {
+  ArrowLeft: () => {
+    game.moveLeft()
+  },
+  ArrowRight: () => {
+    game.moveRight()
+  },
+}
+
 const drawBlock = (grid, graphicsContext, x, y) => {
   const cellWidth = graphicsContext.canvas.width / grid[0].length
   const cellHeight = graphicsContext.canvas.height / grid.length
@@ -82,12 +91,11 @@ drawStats(game)
 drawNextPiece(game.nextPiece, nextPieceGraphicsContext)
 
 document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowLeft') {
-    game.moveLeft()
+  const keyHandler = KEY_BINDINGS[event.key]
+  if (keyHandler) {
+    keyHandler()
   }
-  else if (event.key === 'ArrowRight') {
-    game.moveRight()
-  }
+
   drawGrid(game.grid, gridGraphicsContext)
   drawStats(game)
   drawNextPiece(game.nextPiece, nextPieceGraphicsContext)
