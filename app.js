@@ -11,7 +11,13 @@ const KEY_BINDINGS = {
   ArrowLeft: () => {
     game.moveLeft()
   },
+  a: () => {
+    game.moveLeft()
+  },
   ArrowRight: () => {
+    game.moveRight()
+  },
+  d: () => {
     game.moveRight()
   },
 }
